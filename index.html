@@ -1,11 +1,188 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AutoVision AI</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#0d1117;
+color:white;
+}
+
+header{
+text-align:center;
+padding:60px;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+}
+
+h1{
+font-size:55px;
+margin:0;
+}
+
+section{
+padding:40px;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:#161b22;
+padding:25px;
+border-radius:15px;
+margin-bottom:25px;
+box-shadow:0 0 15px rgba(0,255,255,0.2);
+}
+
+.tech{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+.tech div{
+background:#21262d;
+padding:15px;
+border-radius:10px;
+text-align:center;
+}
+
+.btn{
+display:inline-block;
+padding:15px 25px;
+background:#00c6ff;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#161b22;
+}
+</style>
 </head>
+
 <body>
+
+<header>
 <h1>🚗 AutoVision AI</h1>
 <h2>AI-Powered Autonomous Driving System</h2>
-<p>Using CARLA, YOLOv8, OpenCV and Flask</p>
+<p>Perceive • Predict • Drive</p>
+</header>
+
+<section>
+
+<div class="card">
+<h2>📌 About Project</h2>
+<p>
+AutoVision AI is an Autonomous Driving System developed using CARLA Simulator,
+YOLOv8, OpenCV, Flask and Python.
+The system detects vehicles, pedestrians, traffic signs and road conditions
+in real-time and makes intelligent driving decisions.
+</p>
+</div>
+
+<div class="card">
+<h2>🚀 Key Features</h2>
+<ul>
+<li>YOLOv8 Real-Time Object Detection</li>
+<li>Traffic Sign Recognition</li>
+<li>Obstacle Detection</li>
+<li>Lane Detection</li>
+<li>Vehicle Tracking</li>
+<li>Automatic Emergency Braking (AEB)</li>
+<li>Path Planning</li>
+<li>AI Driving Decisions</li>
+<li>CARLA Simulation Environment</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🛠 Technologies Used</h2>
+
+<div class="tech">
+<div>Python</div>
+<div>YOLOv8</div>
+<div>OpenCV</div>
+<div>CARLA Simulator</div>
+<div>Flask</div>
+<div>NumPy</div>
+<div>PyTorch</div>
+<div>Computer Vision</div>
+</div>
+
+</div>
+
+<div class="card">
+<h2>🏗 System Architecture</h2>
+
+<p>
+
+Camera → YOLO Detection → Object Tracking → Decision Making → Vehicle Control
+
+</p>
+
+<p>
+
+CARLA Sensors → AI Processing → Path Planning → Steering / Brake / Throttle
+
+</p>
+
+</div>
+
+<div class="card">
+<h2>📊 Project Workflow</h2>
+
+<ol>
+<li>Camera captures live environment.</li>
+<li>YOLOv8 detects vehicles, pedestrians and traffic lights.</li>
+<li>AI analyzes road conditions.</li>
+<li>Decision engine generates driving commands.</li>
+<li>CARLA vehicle executes steering, throttle and braking.</li>
+</ol>
+
+</div>
+
+<div class="card">
+<h2>🔗 GitHub Repository</h2>
+
+<a class="btn"
+href="https://github.com/Raj80965/AutoVision-AI"
+target="_blank">
+
+View Source Code
+
+</a>
+
+</div>
+
+<div class="card">
+<h2>👨‍💻 Developer</h2>
+
+<p>
+Raj Rajguru
+</p>
+
+<p>
+AI & Autonomous Systems Developer
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 AutoVision AI | Built using CARLA, YOLOv8 and Python
+
+</footer>
+
 </body>
 </html>
