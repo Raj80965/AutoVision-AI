@@ -1,33 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>AutoVision AI</title>
 
 <style>
-body{
-font-family:Arial,sans-serif;
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
 background:#0d1117;
 color:white;
+line-height:1.6;
 }
 
 header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:60px;
 background:linear-gradient(135deg,#00c6ff,#0072ff);
+padding:20px;
 }
 
-h1{
-font-size:55px;
-margin:0;
+header h1{
+font-size:70px;
+margin-bottom:20px;
+}
+
+header p{
+font-size:24px;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 30px;
+margin:10px;
+background:white;
+color:#0072ff;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
 }
 
 section{
-padding:40px;
-max-width:1200px;
-margin:auto;
+padding:70px 10%;
+}
+
+.title{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+color:#00c6ff;
 }
 
 .card{
@@ -35,144 +74,291 @@ background:#161b22;
 padding:25px;
 border-radius:15px;
 margin-bottom:25px;
-box-shadow:0 0 15px rgba(0,255,255,0.2);
+box-shadow:0 0 15px rgba(0,255,255,0.15);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .tech{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-}
-
-.tech div{
-background:#21262d;
-padding:15px;
-border-radius:10px;
 text-align:center;
-}
-
-.btn{
-display:inline-block;
-padding:15px 25px;
-background:#00c6ff;
-color:white;
-text-decoration:none;
-border-radius:10px;
+font-size:20px;
 font-weight:bold;
 }
 
-footer{
+.workflow{
 text-align:center;
-padding:20px;
-background:#161b22;
+font-size:24px;
+line-height:2;
 }
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.stat{
+background:#161b22;
+padding:25px;
+border-radius:15px;
+text-align:center;
+}
+
+.stat h2{
+color:#00c6ff;
+font-size:40px;
+}
+
+img{
+width:100%;
+border-radius:15px;
+margin-top:10px;
+}
+
+footer{
+background:#161b22;
+text-align:center;
+padding:30px;
+margin-top:50px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
 <h1>🚗 AutoVision AI</h1>
-<h2>AI-Powered Autonomous Driving System</h2>
-<p>Perceive • Predict • Drive</p>
-</header>
-
-<section>
-
-<div class="card">
-<h2>📌 About Project</h2>
-<p>
-AutoVision AI is an Autonomous Driving System developed using CARLA Simulator,
-YOLOv8, OpenCV, Flask and Python.
-The system detects vehicles, pedestrians, traffic signs and road conditions
-in real-time and makes intelligent driving decisions.
-</p>
-</div>
-
-<div class="card">
-<h2>🚀 Key Features</h2>
-<ul>
-<li>YOLOv8 Real-Time Object Detection</li>
-<li>Traffic Sign Recognition</li>
-<li>Obstacle Detection</li>
-<li>Lane Detection</li>
-<li>Vehicle Tracking</li>
-<li>Automatic Emergency Braking (AEB)</li>
-<li>Path Planning</li>
-<li>AI Driving Decisions</li>
-<li>CARLA Simulation Environment</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>🛠 Technologies Used</h2>
-
-<div class="tech">
-<div>Python</div>
-<div>YOLOv8</div>
-<div>OpenCV</div>
-<div>CARLA Simulator</div>
-<div>Flask</div>
-<div>NumPy</div>
-<div>PyTorch</div>
-<div>Computer Vision</div>
-</div>
-
-</div>
-
-<div class="card">
-<h2>🏗 System Architecture</h2>
 
 <p>
-
-Camera → YOLO Detection → Object Tracking → Decision Making → Vehicle Control
-
+AI-Powered Autonomous Driving System
 </p>
 
 <p>
-
-CARLA Sensors → AI Processing → Path Planning → Steering / Brake / Throttle
-
+Perceive • Predict • Drive
 </p>
 
-</div>
-
-<div class="card">
-<h2>📊 Project Workflow</h2>
-
-<ol>
-<li>Camera captures live environment.</li>
-<li>YOLOv8 detects vehicles, pedestrians and traffic lights.</li>
-<li>AI analyzes road conditions.</li>
-<li>Decision engine generates driving commands.</li>
-<li>CARLA vehicle executes steering, throttle and braking.</li>
-</ol>
-
-</div>
-
-<div class="card">
-<h2>🔗 GitHub Repository</h2>
+<div>
 
 <a class="btn"
 href="https://github.com/Raj80965/AutoVision-AI"
 target="_blank">
 
-View Source Code
+GitHub Repository
 
 </a>
 
 </div>
 
+</header>
+
+<section>
+
+<h2 class="title">📌 About Project</h2>
+
 <div class="card">
-<h2>👨‍💻 Developer</h2>
 
 <p>
-Raj Rajguru
+
+AutoVision AI is an advanced autonomous driving system
+developed using CARLA Simulator, YOLOv8, OpenCV,
+PyTorch and Flask.
+
+The system can detect vehicles, pedestrians,
+traffic signs and road conditions in real-time,
+analyze the environment and generate intelligent
+driving decisions automatically.
+
 </p>
 
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">🚀 Key Features</h2>
+
+<div class="grid">
+
+<div class="card">✅ Real-Time Object Detection</div>
+<div class="card">✅ Traffic Light Recognition</div>
+<div class="card">✅ Vehicle Tracking</div>
+<div class="card">✅ Obstacle Detection</div>
+<div class="card">✅ Lane Detection</div>
+<div class="card">✅ Path Planning</div>
+<div class="card">✅ Automatic Emergency Braking</div>
+<div class="card">✅ AI Decision Making</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">🛠 Technologies Used</h2>
+
+<div class="grid">
+
+<div class="card tech">🐍 Python</div>
+<div class="card tech">👁️ YOLOv8</div>
+<div class="card tech">📷 OpenCV</div>
+<div class="card tech">🚗 CARLA Simulator</div>
+<div class="card tech">🔥 PyTorch</div>
+<div class="card tech">🌐 Flask</div>
+<div class="card tech">📊 NumPy</div>
+<div class="card tech">🤖 Computer Vision</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">🏗 System Architecture</h2>
+
+<div class="card workflow">
+
+Camera <br>
+
+⬇️
+
+YOLO Detection <br>
+
+⬇️
+
+Object Tracking <br>
+
+⬇️
+
+AI Decision Engine <br>
+
+⬇️
+
+Path Planning <br>
+
+⬇️
+
+Throttle / Brake / Steering <br>
+
+⬇️
+
+CARLA Vehicle
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">⚙️ Project Workflow</h2>
+
+<div class="card">
+
+<ol>
+
+<li>Camera captures real-time environment.</li>
+
+<li>YOLOv8 detects vehicles, pedestrians and traffic lights.</li>
+
+<li>AI analyzes traffic conditions.</li>
+
+<li>Decision engine generates steering, throttle and brake commands.</li>
+
+<li>Vehicle moves autonomously inside CARLA Simulator.</li>
+
+</ol>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">📊 Project Statistics</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>15+</h2>
+<p>Modules</p>
+</div>
+
+<div class="stat">
+<h2>8+</h2>
+<p>Technologies</p>
+</div>
+
+<div class="stat">
+<h2>5000+</h2>
+<p>Lines of Code</p>
+</div>
+
+<div class="stat">
+<h2>YOLOv8</h2>
+<p>AI Model</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">📸 Project Screenshots</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Dashboard</h3>
+<img src="images/dashboard.png">
+</div>
+
+<div class="card">
+<h3>YOLO Detection</h3>
+<img src="images/yolo_detection.png">
+</div>
+
+<div class="card">
+<h3>Architecture</h3>
+<img src="images/architecture.png">
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">👨‍💻 Developer</h2>
+
+<div class="card">
+
+<h2>Raj Rajguru</h2>
+
 <p>
-AI & Autonomous Systems Developer
+AI • Computer Vision • Autonomous Systems
 </p>
+
+<br>
+
+<a class="btn"
+href="https://github.com/Raj80965"
+target="_blank">
+
+GitHub Profile
+
+</a>
 
 </div>
 
@@ -180,7 +366,17 @@ AI & Autonomous Systems Developer
 
 <footer>
 
-© 2026 AutoVision AI | Built using CARLA, YOLOv8 and Python
+<h3>🚗 AutoVision AI</h3>
+
+<p>
+Built using Python • YOLOv8 • OpenCV • CARLA • Flask
+</p>
+
+<br>
+
+<p>
+© 2026 Raj Rajguru
+</p>
 
 </footer>
 
