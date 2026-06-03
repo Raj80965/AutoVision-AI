@@ -1,0 +1,158 @@
+# 🎯 AutoVision AI — Hackathon PPT (8 Slides)
+
+---
+
+## 📌 SLIDE 1 — TITLE
+**Title:** AutoVision AI
+**Subtitle:** AI-Powered Autonomous Driving System
+**Line:** Computer Vision • Deep Reinforcement Learning • Sensor Fusion
+**Tagline:** *"Perceive. Predict. Drive."*
+
+> 💡 **Design:** Dark background, glowing car image, neon cyan color theme.
+
+---
+
+## 📌 SLIDE 2 — PROBLEM STATEMENT
+**Heading:** Why Do We Need This?
+
+- 🚗 **1.35 million** road deaths per year globally (WHO)
+- **94%** accidents caused by human error
+- Traditional systems **cannot predict** dynamic traffic behavior
+- Rule-based AI **fails** in complex real-world scenarios
+
+**Big Question on slide:**
+> *Can AI perceive, predict, and react faster than a human driver?*
+
+---
+
+## 📌 SLIDE 3 — OUR SOLUTION + TECH STACK
+**Heading:** AutoVision AI — Our Approach
+
+**3 Pillars (boxes/icons):**
+
+| 👁️ PERCEIVE | 🧠 THINK | 🚗 ACT |
+|---|---|---|
+| YOLOv8 Detection | Deep Q-Network (DQN) | BehaviorAgent |
+| Lane Detection | Traffic Predictor | Autonomous Parking |
+| LiDAR Fusion | Reward Learning | Manual Override |
+
+**Tech Stack (bottom row):**
+`Python` • `PyTorch` • `YOLOv8` • `CARLA` • `OpenCV` • `Flask` • `DeepSORT`
+
+---
+
+## 📌 SLIDE 4 — SYSTEM ARCHITECTURE
+**Heading:** How It All Connects
+
+**Flow (left to right):**
+```
+CARLA Simulator
+       │
+  ┌────▼────┐
+  │ SENSORS  │  ← Camera + LiDAR + Collision
+  └────┬────┘
+       │
+  ┌────▼──────────────┐
+  │   PERCEPTION       │  ← YOLO + Lane Detector + DeepSORT Tracking
+  └────┬──────────────┘
+       │
+  ┌────▼──────────────┐
+  │ PREDICTION + AI    │  ← Traffic Predictor + DQN Agent
+  └────┬──────────────┘
+       │
+  ┌────▼──────────────┐
+  │   VEHICLE CONTROL  │  ← Throttle / Steer / Brake
+  └────┬──────────────┘
+       │
+  ┌────▼──────────────┐
+  │  LIVE DASHBOARD    │  ← Flask Web UI @ localhost:5000
+  └───────────────────┘
+```
+
+---
+
+## 📌 SLIDE 5 — KEY AI FEATURES (Part 1)
+**Heading:** Vision + Deep Learning Pipeline
+
+**Left Side — Computer Vision:**
+- 🟢 **Lane Detection:** HLS color space + Hough Transform → real-time lane centering
+- 🟠 **YOLOv8:** Detects cars, buses, pedestrians, stop signs
+- 🔵 **Speed Limit Parsing:** Reads speed limit value (30/60/90) → auto-adjusts vehicle speed
+- 🟣 **DeepSORT Tracking:** Unique ID per vehicle across all frames
+
+**Right Side — Deep Q-Network (DQN):**
+- Neural Net: `5 inputs → 128 → 64 → 4 actions`
+- Learns: When to accelerate, brake, or steer
+- **Experience Replay Buffer** (10,000 transitions)
+- Reward: +10 speed, +5 lane center, +30 obstacle avoided, -100 collision
+
+---
+
+## 📌 SLIDE 6 — KEY AI FEATURES (Part 2)
+**Heading:** Sensor Fusion + Traffic Behavior Prediction
+
+**Left — LiDAR + Camera Fusion:**
+- LiDAR generates **3D point cloud** (32 channels, 50K pts/sec)
+- Points projected onto **2D camera frame**
+- Exact distance per detected vehicle → **Time-to-Collision (TTC)**
+
+| TTC Value | AI Response |
+|-----------|-------------|
+| < 1.5 sec | 🔴 Emergency Brake |
+| < 3.0 sec | 🟠 Hard Brake |
+| > 5.0 sec | 🟢 Clear Road |
+
+**Right — Traffic Predictor (NEW):**
+- Tracks velocity history of each car (15 frames)
+- Classifies in real-time:
+  - 🟢 MOVING | 🔴 BRAKING | 🟠 ACCELERATING | 💜 LANE CHANGE | ⬛ STATIONARY
+- Draws **trajectory arrows** on HUD for predicted future path
+
+---
+
+## 📌 SLIDE 7 — DASHBOARD + RESULTS
+**Heading:** Live Telemetry Dashboard + What We Achieved
+
+**Dashboard Features (left):**
+- 🚦 Live Traffic Light State
+- 🏎️ Real-time Speed (km/h)
+- 🛣️ Lane Deviation Meter
+- 🚧 Obstacle Distance + TTC
+- 🚗 Traffic Prediction Panel
+- 🚨 Speed Limit Badge (auto-updates)
+- 🕹️ Manual WASD Override
+
+**Results Table (right):**
+| Feature | Status |
+|---------|--------|
+| Object Detection (YOLOv8) | ✅ Live @30 FPS |
+| Lane Detection | ✅ Real-time |
+| DQN Agent | ✅ Learning + Saving |
+| Traffic Prediction | ✅ 5-class live |
+| Sensor Fusion | ✅ LiDAR + Camera |
+| Autonomous Parking | ✅ 6-step sequence |
+| Web Dashboard | ✅ 300ms refresh |
+
+---
+
+## 📌 SLIDE 8 — CONCLUSION + Q&A
+**Heading:** Summary & Future Scope
+
+**What We Built:**
+- ✅ End-to-end autonomous driving pipeline — fully functional
+- ✅ 7 AI modules working together in real-time
+- ✅ Predictive AI for traffic behavior (not just reactive)
+- ✅ Live monitoring dashboard at `http://localhost:5000`
+
+**Future Scope:**
+- 🔮 PPO/SAC for continuous action RL
+- 🌐 V2X (Vehicle-to-Everything) communication
+- 🤖 Multi-agent simulation
+- 🔌 Edge deployment on Nvidia Jetson
+
+**Closing Quote:**
+> *"We didn't just build a self-driving car.  
+> We built a system that sees, thinks, and predicts — like an expert driver."*
+
+---
+*8 Slides | ~8 minutes presentation | Tech: Python • PyTorch • CARLA • YOLOv8 • Flask*

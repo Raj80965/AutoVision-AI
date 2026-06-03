@@ -1,0 +1,17 @@
+{
+  "mode": "MANUAL",
+  "speed": 0.0,
+  "lane_center": 0.474,
+  "lane_detected": true,
+  "detected_signs": [],
+  "closest_obstacle": "NONE",
+  "ttc": 999.0,
+  "speed_limit": 40,
+  "traffic_behaviors": {
+    "LANE_CHANGE": 1
+  },
+  "aeb_level": "CLEAR",
+  "aeb_dist": 999.0,
+  "aeb_target": "",
+  "next_turn": "FOLLOW"
+}
