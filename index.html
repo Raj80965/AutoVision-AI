@@ -317,10 +317,13 @@
       <a class="btn" onclick="alert('System Start Instructions:\n\n1. Ensure CARLA Simulator is open.\n2. Double-click the run.bat file in your project folder.\n\nThis will automatically start the AI driving logic and the dashboard server!')" style="cursor: pointer;">
         <i class="fas fa-power-off"></i> Start Simulation (run.bat)
       </a>
-      <a class="btn btn-outline" style="border-color: #b000ff; color: #b000ff;" href="http://localhost:5000" target="_blank">
-        <i class="fas fa-chart-bar"></i> Open Data Dashboard
+      <a class="btn btn-outline" style="border-color: #b000ff; color: #b000ff; cursor: pointer;" onclick="document.getElementById('live-dashboard-frame').style.display='block'; this.innerHTML='<i class=\'fas fa-check\'></i> Dashboard Loaded Below';">
+        <i class="fas fa-tv"></i> Open Live Dashboard Here
       </a>
     </div>
+
+    <!-- Hidden iframe for live dashboard -->
+    <iframe id="live-dashboard-frame" src="http://localhost:5000" style="display: none; width: 100%; height: 800px; border: 2px solid #00c6ff; border-radius: 16px; margin-top: 30px; background: #0a0c15;"></iframe>
   </div>
 </section>
 
