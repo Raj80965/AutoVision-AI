@@ -273,6 +273,36 @@
       .title { font-size: 2rem; }
       section { padding: 60px 5%; }
     }
+
+    /* Video Modal Styles */
+    .video-modal {
+      display: none; position: fixed; z-index: 9999;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background-color: rgba(5, 10, 18, 0.95);
+      backdrop-filter: blur(8px);
+      align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .video-modal.show { display: flex; opacity: 1; }
+    .close-modal {
+      position: absolute; top: 25px; right: 40px;
+      color: #00c6ff; font-size: 45px; font-weight: bold;
+      cursor: pointer; transition: 0.3s;
+    }
+    .close-modal:hover { color: #fff; transform: scale(1.1); }
+    .video-trigger { cursor: pointer; position: relative; }
+    .play-overlay {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem; color: rgba(255, 255, 255, 0.85);
+      pointer-events: none; transition: 0.3s;
+      text-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+    }
+    .video-trigger:hover .play-overlay {
+      color: #00c6ff; transform: translate(-50%, -50%) scale(1.15);
+    }
+    .video-trigger:hover video { filter: brightness(0.7); }
+    .video-trigger video { transition: 0.3s; }
   </style>
 </head>
 <body>
@@ -380,12 +410,13 @@
       <p style="margin-top:12px; font-size:13px;">Real-time Flask dashboard with sensor fusion overlay</p>
     </div>
 
-    <div class="card screenshot-card">
+    <div class="card screenshot-card video-trigger" onclick="openModal('V1.mp4')">
       <h3><i class="fas fa-video"></i> Live Simulation V1</h3>
-      <div class="demo-img" style="padding: 0; background: transparent; border: none; min-height: auto;">
-        <video src="V1.mp4" autoplay loop muted playsinline style="width:100%; height:auto; border-radius:20px; border: 1px solid #2d3a60;"></video>
+      <div class="demo-img" style="padding: 0; background: transparent; border: none; min-height: auto; position: relative;">
+        <video src="V1.mp4#t=0.1" preload="metadata" muted playsinline style="width:100%; height:auto; border-radius:20px; border: 1px solid #2d3a60; display: block;"></video>
+        <i class="fas fa-play-circle play-overlay"></i>
       </div>
-      <p style="margin-top:12px; font-size:13px;">Live footage from CARLA autonomous driving simulation</p>
+      <p style="margin-top:12px; font-size:13px; color:#00c6ff;"><i class="fas fa-hand-pointer"></i> Tap to play live video</p>
     </div>
 
     <div class="card screenshot-card">
@@ -403,12 +434,13 @@
       <p style="margin-top:12px; font-size:13px;">Real-time YOLOv8 inference with tracking IDs</p>
     </div>
 
-    <div class="card screenshot-card">
+    <div class="card screenshot-card video-trigger" onclick="openModal('V2.mp4')">
       <h3><i class="fas fa-video"></i> Live Detection V2</h3>
-      <div class="demo-img" style="padding: 0; background: transparent; border: none; min-height: auto;">
-        <video src="V2.mp4" autoplay loop muted playsinline style="width:100%; height:auto; border-radius:20px; border: 1px solid #2d3a60;"></video>
+      <div class="demo-img" style="padding: 0; background: transparent; border: none; min-height: auto; position: relative;">
+        <video src="V2.mp4#t=0.1" preload="metadata" muted playsinline style="width:100%; height:auto; border-radius:20px; border: 1px solid #2d3a60; display: block;"></video>
+        <i class="fas fa-play-circle play-overlay"></i>
       </div>
-      <p style="margin-top:12px; font-size:13px;">Real-time AI detection in complex scenarios</p>
+      <p style="margin-top:12px; font-size:13px; color:#00c6ff;"><i class="fas fa-hand-pointer"></i> Tap to play live video</p>
     </div>
 
     <div class="card screenshot-card">
@@ -523,7 +555,31 @@
     });
   });
 
+  // Video Modal Logic
+  function openModal(videoSrc) {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    video.src = videoSrc;
+    modal.classList.add('show');
+    video.play();
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    video.pause();
+    video.src = "";
+    modal.classList.remove('show');
+  }
+
   console.log("🚀 AutoVision AI — Final advanced interface loaded | Ready for autonomous driving showcase");
 </script>
+
+<!-- Video Modal Overlay -->
+<div id="videoModal" class="video-modal" onclick="if(event.target===this) closeModal()">
+  <span class="close-modal" onclick="closeModal()">&times;</span>
+  <video id="modalVideo" controls autoplay style="width: 85%; max-height: 85vh; border-radius: 16px; border: 2px solid #00c6ff; outline: none; box-shadow: 0 0 30px rgba(0, 198, 255, 0.4);"></video>
+</div>
+
 </body>
 </html>
